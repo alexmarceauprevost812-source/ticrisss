@@ -25,10 +25,10 @@ def render(report):
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
 <title>ticrisss — Rapport d’audit</title><style>
 body{margin:0;background:#101827;color:#edf2f7;font:16px system-ui,sans-serif}
-main{max-width:900px;margin:auto;padding:32px 20px}h1{color:#65dfcc}section{background:#1c283b;padding:20px;margin:20px 0;border-radius:12px}
+main{max-width:900px;margin:auto;padding:32px 20px}h1{color:#65dfcc;font-size:42px;letter-spacing:2px;margin:0}header{border-bottom:2px solid #65dfcc;padding:16px 0;margin-bottom:24px}section{background:#1c283b;padding:20px;margin:20px 0;border-radius:12px}
 table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid #435069}li{margin:10px 0}
 pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}p{line-height:1.6}small{color:#b7c7db}
-</style><main><h1>ticrisss</h1><p>Cible : ''' + escape(report.get('target', '?')) + '''<br>Date UTC : ''' + escape(report.get('time_utc', '?')) + '''</p>
+</style><main><header aria-label="ticrisss"><h1>ticrisss</h1><small>AUDIT DE CYBERSÉCURITÉ</small></header><p>Cible : ''' + escape(report.get('target', '?')) + '''<br>Date UTC : ''' + escape(report.get('time_utc', '?')) + '''</p>
 <p>Un port ouvert ou une réponse HTTP 200 n’est pas une preuve de vulnérabilité. Les pistes doivent être confirmées par le propriétaire du système.</p>
 <section><h2>Ports testés</h2><table><tr><th>Port TCP</th><th>État</th></tr>''' + rows + '''</table></section>
 <section><h2>Points à examiner</h2><ul>''' + (candidates or '<li>Aucune piste signalée par le module d’exposition. Cela ne prouve pas l’absence de fuite.</li>') + '''</ul></section>
