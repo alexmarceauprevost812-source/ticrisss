@@ -8,6 +8,12 @@ import ipaddress
 import json
 import pathlib
 import socket
+import sys
+
+LOGO = """+--------------------------------------+
+|              ticrisss                |
+|       Audit de cybersecurite          |
++--------------------------------------+"""
 
 NETWORKS = tuple(ipaddress.ip_network(n) for n in
                  ('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16', '127.0.0.0/8'))
@@ -94,6 +100,7 @@ def check_exposure(target, port):
 
 
 def main():
+    print(LOGO, file=sys.stderr, flush=True)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('target', type=local_ip, help='Adresse IPv4 locale autorisée')
     parser.add_argument('--ports', type=ports, default=DEFAULT_PORTS)
